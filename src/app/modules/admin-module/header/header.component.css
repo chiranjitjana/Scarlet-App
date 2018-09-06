@@ -1,0 +1,40 @@
+.navbar-default .navbar-brand {
+    color: #fff;
+    font-weight: 1000;
+}
+
+.navbar-default {
+    background-color: #093d67;
+    border-color: #093d67;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #d4d1d1;
+    background-color: #fffccc00;
+    font-weight: 1000;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: 3px solid;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+  color: #d4d1d1;
+  background-color: #fffccc00;
+  font-weight: 1000;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom: 3px solid;
+}
+
+
+.navbar {
+     border-radius: 0px!important;
+}
+
+.logout{
+  float: left;
+  height: 50px;
+  padding: 16px 47px;
+  font-size: 15px;
+  line-height: 20px;
+  color: #fdefef;
+}

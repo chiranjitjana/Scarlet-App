@@ -1,0 +1,91 @@
+<app-header></app-header>
+  <div class="">
+      <div class="sidbar col-sm-3">
+          <ul class="sidebar_ul">
+            <li (click)="showSlider($event)"><a href="#" >Home Slider</a></li>
+            <li  (click)="showOffer($event)"><a href="#" >Home Offers</a></li>
+          </ul>
+      </div>
+      <div class="contain col-sm-9" style="margin-top: 5px;">
+        <div class="homeslidercontain" *ngIf="homeslider">
+          <chiri-panel>
+            <div class="chiri-heading">Home Slider</div>
+            <div class="chiri-btn-add"><a class="pull-right add-btn" data-toggle="modal" data-target="#add-home-slider-btn"><i class="fa fa-plus"></i> Add Slider</a></div>
+            <div class="chiri-body">Home Body</div>
+          </chiri-panel>
+        </div>
+        <div class="homeoffercontain" *ngIf="homeoffer">
+          <chiri-panel>
+            <div class="chiri-heading">Home Offer</div>
+            <div class="chiri-btn-add"><a class="pull-right add-btn" data-toggle="modal" data-target="#add-home-offer-btn"><i class="fa fa-plus"></i> Add Offer</a></div>
+            <div class="chiri-body">Home Body</div>
+          </chiri-panel>
+        </div>
+      </div>
+  </div>
+
+
+  <chiri-modal [idval]="'add-home-slider-btn'">
+    <div class="chiri-modal-title">Home Slider</div>
+    <div class="chiri-modal-body">
+      <form #homeSlider="ngForm" (ngSubmit)="saveHomeSlider(homeSlider)">
+
+          <div class="cross-validation" [class.cross-validation-error]="(homeSlider.touched || homeSlider.dirty)">
+            <div class="form-group">
+              <label for="file">Slider Image:<span class="required">*</span></label>
+              <input id="file" name="file" type="file"
+               class="form-control"  [(ngModel)]="modelSlider.file" #file="ngModel" required
+                (change)="handleFileInput($event.target.files)">
+
+              <div *ngIf="file.invalid && (file.dirty || file.touched)"
+                  class="alert alert-danger">
+
+                <div *ngIf="file.errors.required">
+                  File is required.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="description">Description:<span class="required">*</span></label>
+              <textarea  class="form-control" id="description" name="description" placeholder="Please Enter"
+               [(ngModel)]="modelSlider.description" #description="ngModel" required></textarea>
+
+               <div *ngIf="description.invalid && (description.dirty || description.touched)"
+                   class="alert alert-danger">
+
+                 <div *ngIf="description.errors.required">
+                   Description is required.
+                 </div>
+               </div>
+            </div>
+            <button type="submit" class="btn btn-success"
+                         [disabled]="homeSlider.invalid">Add Slider</button>
+          </div>
+
+      </form>
+    </div>
+  </chiri-modal>
+
+  <chiri-modal [idval]="'add-home-offer-btn'">
+    <div class="chiri-modal-title">Home Offer</div>
+    <div class="chiri-modal-body">
+      <div class="form-group">
+        <label for="ci">Slider Image:<span class="required">*</span></label>
+        <input type="file" class="form-control" id="ci"  placeholder="Please Enter">
+      </div>
+      <div class="form-group">
+        <label for="description">Description:<span class="required">*</span></label>
+        <textarea  class="form-control" id="description" placeholder="Please Enter"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="ci">Start Date -End Date:<span class="required">*</span></label>
+        <input id="dateOfBirth" name="dateOfBirth" [(ngModel)]="dateOfBirth"
+          class="form-control" type="text" bsDaterangepicker [bsConfig]="datePickerConfig"  placeholder="Please Select" />
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-success text-center">Add Offer</button>
+      </div>
+    </div>
+  </chiri-modal>
+
+<app-footer></app-footer>

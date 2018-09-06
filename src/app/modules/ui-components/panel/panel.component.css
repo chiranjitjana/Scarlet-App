@@ -1,0 +1,36 @@
+.panel-primary {
+    border-color: #00ff7b!important;
+}
+
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #009688!important;
+    border-color: #00ff7b!important;
+}
+
+button.close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    color: #fff;
+}
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+     opacity: 1.0!important;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #004b44;
+    background-color: #004b44;
+    color: #fff;
+}
