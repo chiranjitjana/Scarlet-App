@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators,NgForm,FormControl, FormGroup } from '@angular/forms';
 import {NgbDate, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
-import {HomeSlider} from '../../../models/index';
+import {HomeSlider,HomeOffer} from '../../../models/index';
 import {HomeService} from '../../../services/index';
 @Component({
   selector: 'app-home',
@@ -15,8 +15,9 @@ export class HomeComponent implements OnInit {
   // create a property of type Partial<BsDatepickerConfig>
   datePickerConfig: Partial<BsDatepickerConfig>;
   modelSlider=new HomeSlider(null,"");
+  modelOffer=new HomeOffer(null,"","");
   sliderForm: FormGroup;
-
+  offerForm: FormGroup;
    constructor(calendar: NgbCalendar,public homeservice:HomeService) {
      this.datePickerConfig = Object.assign({},
      {
@@ -31,8 +32,14 @@ export class HomeComponent implements OnInit {
     this.homeslider=true;
     this.homeoffer=false;
     this.sliderForm = new FormGroup({
-      'file': new FormControl(this.modelSlider.file, Validators.required),
-      'description': new FormControl(this.modelSlider.description, Validators.required)
+      'file_slider': new FormControl(this.modelSlider.file, Validators.required),
+      'description_slider': new FormControl(this.modelSlider.description, Validators.required)
+    });
+
+    this.offerForm=new FormGroup({
+      'file_offer': new FormControl(this.modelOffer.file, Validators.required),
+      'description_offer': new FormControl(this.modelOffer.description, Validators.required),
+      'daterange_offer': new FormControl(this.modelOffer.daterange, Validators.required)
     });
   }
 
@@ -61,7 +68,9 @@ export class HomeComponent implements OnInit {
      });
   }
 
-
+  saveHomeOffer(homeOffer:NgForm):void{
+      console.log(homeOffer.value);
+  }
 
 
 
